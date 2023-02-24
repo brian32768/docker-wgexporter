@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+  exporter:
+    container_name: wgexporter
+    image: mindflavor/prometheus-wireguard-exporter
+    ports:
+      - 9586:9586/tcp
+    network_mode: "host"
+    cap_add: [ "NET_ADMIN" ]
+    restart: unless-stopped
+
+    command: [ "-a", "true" ]
+
